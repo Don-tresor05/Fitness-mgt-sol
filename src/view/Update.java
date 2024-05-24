@@ -60,6 +60,7 @@ public class Update extends javax.swing.JFrame {
         exittxt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UpdateMember Details Form");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
@@ -219,6 +220,7 @@ public class Update extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        exittxt.setBackground(new java.awt.Color(153, 153, 255));
         exittxt.setText("Exit");
         exittxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exittxt.addActionListener(new java.awt.event.ActionListener() {

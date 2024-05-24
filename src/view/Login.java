@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -59,7 +60,6 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Password");
 
         loginBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Login");
         loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -69,8 +69,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cancelBtn.setForeground(new java.awt.Color(255, 255, 255));
-        cancelBtn.setText("Cancel");
+        cancelBtn.setText("Exit");
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,9 +78,8 @@ public class Login extends javax.swing.JFrame {
         });
 
         showBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        showBtn.setForeground(new java.awt.Color(255, 255, 255));
         showBtn.setText("Show Password");
-        showBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        showBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showBtnActionPerformed(evt);
@@ -117,7 +115,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addComponent(jLabel2)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +149,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        if (usernametxt.getText().equals("Don")&& passwordtxt.getText().equals("tresor")){
+        if (usernametxt.getText().equals("Don")&& passwordtxt.getText().equals("Tresor")){
              setVisible(false);
             new Home().setVisible(true);
         }

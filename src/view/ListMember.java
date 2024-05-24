@@ -5,6 +5,7 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -58,8 +59,7 @@ public class ListMember extends javax.swing.JFrame {
             });
         }
         con.close();
-    } catch (Exception ex) {
-        ex.printStackTrace();
+    } catch (SQLException ex) {
     }
 }
 
@@ -79,8 +79,11 @@ public class ListMember extends javax.swing.JFrame {
         addmemberbutton = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
         refreshBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        updatememberBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("List Member Form");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -110,6 +113,7 @@ public class ListMember extends javax.swing.JFrame {
             }
         });
 
+        exitBtn.setBackground(new java.awt.Color(153, 153, 255));
         exitBtn.setText("Exit");
         exitBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +130,22 @@ public class ListMember extends javax.swing.JFrame {
             }
         });
 
+        deleteBtn.setText("Delete");
+        deleteBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        updatememberBtn.setText("Update");
+        updatememberBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updatememberBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatememberBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,9 +158,13 @@ public class ListMember extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addmemberbutton)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(updatememberBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exitBtn)
-                .addGap(128, 128, 128))
+                .addGap(75, 75, 75))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
@@ -157,7 +181,9 @@ public class ListMember extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addmemberbutton)
-                    .addComponent(exitBtn))
+                    .addComponent(exitBtn)
+                    .addComponent(deleteBtn)
+                    .addComponent(updatememberBtn))
                 .addContainerGap())
         );
 
@@ -198,6 +224,45 @@ public class ListMember extends javax.swing.JFrame {
          retrievedata();
     }//GEN-LAST:event_refreshBtnActionPerformed
 
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+      int selectedRow = tabledata.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Please select a member to delete.");
+        return; // Exit the method if no row is selected
+    }
+
+    int memberId = Integer.parseInt(tablemodel.getValueAt(selectedRow, 0).toString());
+
+    int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this member?", "Confirmation", JOptionPane.YES_NO_OPTION);
+    if (choice == JOptionPane.YES_OPTION) {
+        try {
+            Connection con = DriverManager.getConnection(db_url, db_username, db_passwd);
+            PreparedStatement st = con.prepareStatement("DELETE FROM member WHERE member_id = ?");
+            st.setInt(1, memberId);
+            int rowsAffected = st.executeUpdate();
+            con.close();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(this, "Member deleted successfully.");
+                retrievedata();
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to delete member.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "An error occurred while deleting the member.");
+        }
+    }
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void updatememberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatememberBtnActionPerformed
+        // TODO add your handling code here:
+        dispose();
+         setVisible(false);
+            new Update().setVisible(true);
+    }//GEN-LAST:event_updatememberBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,11 +300,13 @@ public class ListMember extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addmemberbutton;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshBtn;
     private javax.swing.JTable tabledata;
+    private javax.swing.JButton updatememberBtn;
     // End of variables declaration//GEN-END:variables
 }

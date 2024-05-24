@@ -57,6 +57,7 @@ public class NewMember extends javax.swing.JFrame {
         amounttxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("New Member Form");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -111,6 +112,7 @@ public class NewMember extends javax.swing.JFrame {
             }
         });
 
+        exitBtn.setBackground(new java.awt.Color(153, 153, 255));
         exitBtn.setText("Exit");
         exitBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitBtn.addActionListener(new java.awt.event.ActionListener() {

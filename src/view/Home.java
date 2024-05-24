@@ -44,11 +44,14 @@ public class Home extends javax.swing.JFrame {
         listitem = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         FormMenuItem1 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        logoutitem = new javax.swing.JMenuItem();
-        exititem = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        FormMenuItem2 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        logoutitem1 = new javax.swing.JMenuItem();
+        exititem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home Page");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -74,7 +77,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0,0));
         jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("STOP WISHING");
@@ -167,34 +170,55 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu5);
 
-        jMenu6.setText("Logout/Exit");
-        jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+        jMenu7.setText("Attendance List");
+        jMenu7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu6ActionPerformed(evt);
+                jMenu7ActionPerformed(evt);
             }
         });
 
-        logoutitem.setText("Logout");
-        logoutitem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logoutitem.addActionListener(new java.awt.event.ActionListener() {
+        FormMenuItem2.setText("Form");
+        FormMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        FormMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutitemActionPerformed(evt);
+                FormMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu6.add(logoutitem);
+        jMenu7.add(FormMenuItem2);
 
-        exititem.setText("Exit");
-        exititem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exititem.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar2.add(jMenu7);
+
+        jMenu8.setBackground(new java.awt.Color(204, 0, 51));
+        jMenu8.setText("Logout/Exit");
+        jMenu8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exititemActionPerformed(evt);
+                jMenu8ActionPerformed(evt);
             }
         });
-        jMenu6.add(exititem);
 
-        jMenuBar2.add(jMenu6);
+        logoutitem1.setText("Logout");
+        logoutitem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutitem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutitem1ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(logoutitem1);
+
+        exititem1.setText("Exit");
+        exititem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exititem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exititem1ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(exititem1);
+
+        jMenuBar2.add(jMenu8);
 
         setJMenuBar(jMenuBar2);
 
@@ -240,29 +264,39 @@ public class Home extends javax.swing.JFrame {
             new Membershiplans().setVisible(true);
     }//GEN-LAST:event_FormMenuItem1ActionPerformed
 
-    private void logoutitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutitemActionPerformed
+    private void FormMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+            new Attendances().setVisible(true);
+    }//GEN-LAST:event_FormMenuItem2ActionPerformed
+
+    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jMenu7ActionPerformed
+
+    private void logoutitem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutitem1ActionPerformed
         // TODO add your handling code here:
         int a=JOptionPane.showConfirmDialog(null,"do you want to exit?","select",JOptionPane.YES_NO_OPTION);
-         if(a==0)
-              {
+        if(a==0)
+        {
             setVisible(false);
             new Login().setVisible(true);
-              }
-    }//GEN-LAST:event_logoutitemActionPerformed
+        }
+    }//GEN-LAST:event_logoutitem1ActionPerformed
 
-    private void exititemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exititemActionPerformed
+    private void exititem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exititem1ActionPerformed
         // TODO add your handling code here:
         int a=JOptionPane.showConfirmDialog(null,"do you want to exit?","select",JOptionPane.YES_NO_OPTION);
-         if(a==0)
-              {
+        if(a==0)
+        {
             System.exit(0);
         }
-        
-    }//GEN-LAST:event_exititemActionPerformed
+    }//GEN-LAST:event_exititem1ActionPerformed
 
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu6ActionPerformed
+    }//GEN-LAST:event_jMenu8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,21 +335,23 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem FormMenuItem1;
+    private javax.swing.JMenuItem FormMenuItem2;
     private javax.swing.JMenuItem deletememberitem;
-    private javax.swing.JMenuItem exititem;
+    private javax.swing.JMenuItem exititem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JMenuItem listitem;
-    private javax.swing.JMenuItem logoutitem;
+    private javax.swing.JMenuItem logoutitem1;
     private javax.swing.JMenuItem newmemberitem;
     private javax.swing.JMenuItem updatememberitem;
     // End of variables declaration//GEN-END:variables

@@ -9,6 +9,10 @@ import java.util.List;
 import model.Member;
 
 public class MemberDao {
+
+    public static Member getMemberById(int memberId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private String jdbcUrl = "jdbc:mysql://localhost:8080/fitness_center_mgt_solution";
     private String dbUsername = "root";
     private String dbPasswd = "Tresor92@";

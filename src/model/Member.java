@@ -32,6 +32,7 @@ public class Member {
         return memberId;
     }
 
+
     public void setMemberId(Integer memberId) {
         this.memberId = memberId;
     }
